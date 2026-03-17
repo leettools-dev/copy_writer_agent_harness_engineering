@@ -1,0 +1,70 @@
+{
+  "document_title": "Market Analysis: Harness Engineering for LLM Agents",
+  "document_type": "market_analysis",
+  "reference": {
+    "mode": "discovered",
+    "source": "internet",
+    "source_url": "https://www.langchain.com/stateofaiagents",
+    "path": "references/selected_example.md",
+    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch failed; normalization derived from search snippets and known report highlights."
+  },
+  "sections": [
+    {
+      "section_id": "01-executive-summary",
+      "title": "Executive Summary",
+      "file": "document/sections/01-executive-summary.md",
+      "status": "draft",
+      "summary": "High-level summary of market status, key trends, and recommendations for harness engineering."
+    },
+    {
+      "section_id": "02-market-signals",
+      "title": "Market Signals and Key Statistics",
+      "file": "document/sections/02-market-signals.md",
+      "status": "draft",
+      "summary": "Survey results, adoption metrics, and vendor activity indicating market momentum."
+    },
+    {
+      "section_id": "03-use-cases",
+      "title": "Leading Use Cases for LLM Agents",
+      "file": "document/sections/03-use-cases.md",
+      "status": "draft",
+      "summary": "Primary application areas where harnesses are most needed (e.g., data agents, code agents, automation)."
+    },
+    {
+      "section_id": "04-technical-architecture",
+      "title": "Architectures and Integration Patterns",
+      "file": "document/sections/04-technical-architecture.md",
+      "status": "draft",
+      "summary": "Common harness architectures, agent orchestration, memory, tool invocation, and monitoring patterns."
+    },
+    {
+      "section_id": "05-operational-challenges",
+      "title": "Production Challenges and Guardrails",
+      "file": "document/sections/05-operational-challenges.md",
+      "status": "draft",
+      "summary": "Reliability, safety, evaluation, cost, and governance concerns for deploying agent harnesses."
+    },
+    {
+      "section_id": "06-vendor-landscape",
+      "title": "Vendor and Tooling Landscape",
+      "file": "document/sections/06-vendor-landscape.md",
+      "status": "draft",
+      "summary": "Key frameworks, cloud providers, and observability tooling relevant to harness engineering."
+    },
+    {
+      "section_id": "07-recommendations",
+      "title": "Recommendations for Engineering Teams",
+      "file": "document/sections/07-recommendations.md",
+      "status": "draft",
+      "summary": "Actionable next steps for teams building harnesses for LLM agents, including priorities and resource suggestions."
+    },
+    {
+      "section_id": "08-future-outlook",
+      "title": "Future Outlook and Research Directions",
+      "file": "document/sections/08-future-outlook.md",
+      "status": "draft",
+      "summary": "Emerging trends and research areas that will shape harness engineering for agents."
+    }
+  ],
+  "special_instructions": []
+}

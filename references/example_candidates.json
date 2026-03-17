@@ -1,0 +1,23 @@
+[
+  {
+    "title": "LangChain - State of AI Agents Report: 2024 Trends",
+    "url": "https://www.langchain.com/stateofaiagents",
+    "source": "langchain.com",
+    "notes": "Survey-driven industry report focused on agent adoption, use cases, guardrails, and production challenges. Strong match for tone and structure for market analysis.",
+    "score": 0.95
+  },
+  {
+    "title": "AI Agents are disrupting automation: Current approaches, market ...",
+    "url": "https://www.insightpartners.com/ideas/ai-agents-disrupting-automation/",
+    "source": "insightpartners.com",
+    "notes": "Investor-oriented market writeup discussing commercialization and vendor landscape.",
+    "score": 0.8
+  },
+  {
+    "title": "Build an LLM-Powered Data Agent for Data Analysis - NVIDIA Developer",
+    "url": "https://developer.nvidia.com/blog/build-an-llm-powered-data-agent-for-data-analysis/",
+    "source": "developer.nvidia.com",
+    "notes": "Technical and hands-on; useful for technical landscape and engineering considerations.",
+    "score": 0.7
+  }
+]
