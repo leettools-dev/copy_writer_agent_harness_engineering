@@ -6,7 +6,7 @@
     "source": "internet",
     "source_url": "https://www.langchain.com/stateofaiagents",
     "path": "references/selected_example.md",
-    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes. Section 03 updated to draft->done after adding evidence and implications."
+    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes. Section 03 updated to done after adding evidence and implications. Section 04 updated to done after authoring a concrete architecture section with examples and implementation checklist."
   },
   "sections": [
     {
@@ -34,7 +34,7 @@
       "section_id": "04-technical-architecture",
       "title": "Architectures and Integration Patterns",
       "file": "document/sections/04-technical-architecture.md",
-      "status": "draft",
+      "status": "done",
       "summary": "Common harness architectures, agent orchestration, memory, tool invocation, and monitoring patterns."
     },
     {
