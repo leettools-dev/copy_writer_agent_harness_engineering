@@ -6,14 +6,14 @@
     "source": "internet",
     "source_url": "https://www.langchain.com/stateofaiagents",
     "path": "references/selected_example.md",
-    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch failed; normalization derived from search snippets and known report highlights."
+    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes."
   },
   "sections": [
     {
       "section_id": "01-executive-summary",
       "title": "Executive Summary",
       "file": "document/sections/01-executive-summary.md",
-      "status": "draft",
+      "status": "done",
       "summary": "High-level summary of market status, key trends, and recommendations for harness engineering."
     },
     {

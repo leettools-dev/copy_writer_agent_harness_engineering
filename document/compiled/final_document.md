@@ -2,30 +2,85 @@
 
 Executive Summary
 
-This market analysis examines the current status of harness engineering for LLM agents: the software and operational layers that integrate, orchestrate, monitor, and control agentic systems built on large language models. We synthesize market signals, leading use cases, common architectural patterns, production challenges, vendor activity, and practical recommendations for engineering teams.
+This report assesses the current status of harness engineering for LLM agents — the integration, control, and observation layers teams build around large language model–driven agents to make them reliable, safe, and cost-effective in production.
 
-Key takeaways
-- Rapid interest and experimentation: Many organizations are actively exploring agentic systems; a significant portion run pilots and some operate in production.
-- Harness engineering is becoming a distinct discipline: responsibilities include tool integration, memory management, orchestration, observability, cost control, and safety guardrails.
-- Top engineering challenges: reliability and reproducibility of behavior, safety and hallucination mitigation, scalable evaluation, and cost management.
-- Recommended priorities: define clear success metrics, build modular harness layers with strong monitoring and testing, adopt incremental deployment, and invest in guardrails and incident response.
+Anchoring evidence
+- Survey backbone: LangChain surveyed over 1,300 professionals (engineers, product managers, business leaders) and reports that ~51% of respondents have agents in production and 78% have active plans to implement agents into production soon. (LangChain, "State of AI Agents" — see Research Notes)
+- Top use cases: research & summarization (≈58%), personal productivity/assistant workflows (≈53.5%), and customer service automation (≈45.8%).
+- Controls & evaluation: tracing/observability and offline evaluation are commonly used; LangChain reports offline evaluation (39.8%) is cited more than online evaluation (32.5%). Many teams restrict tool permissions (read-only by default) or require human approval for sensitive actions.
+- Primary barrier: perceived performance/quality of agent outputs is the leading obstacle, cited more often than cost or safety concerns.
 
-Intended audience: engineering leads, platform teams, product managers, and technical decision-makers evaluating agent deployments.
+What this means for harness engineering (analysis and implications)
+1) Immediate demand for observability and reproducible evaluation
+   - Evidence: tracing and offline evaluation are top controls in the LangChain survey. Implication: teams must instrument agents end-to-end (inputs, decisions, tool calls, and outputs) and build regression/evaluation pipelines that compare responses across model/chain changes.
+   - Recommended metrics to track: task success rate (binary or graded), hallucination/incorrectness rate, mean time to detect (MTTD) and mean time to recover (MTTR) for erroneous agent behaviors, and tokens/cost per successful task.
+
+2) Guardrails and permissioned tool execution are operational priorities
+   - Evidence: enterprises favor read-only tool permissions and human approval for write/delete; smaller teams focus on tracing to understand behavior.
+   - Implication: harnesses should separate capability (what the agent can plan) from authority (what it can execute) via an explicit permissions layer and human-in-the-loop approval workflows for high-risk actions.
+
+3) Evaluation & testing must be systematic and offline-first
+   - Evidence: offline evaluation is widely used and often precedes online evaluation. Performance/quality is the main barrier to production rollout.
+   - Implication: establish automated offline test suites (benchmarks, deterministic prompts, scenario-based tests) and regression testing that run on model, prompt, and tool changes before canarying to production.
+
+4) Cost telemetry and predictable execution patterns are required
+   - Evidence: cost is a concern but often secondary to quality; however, agent workflows can amplify token and API usage across tool calls and multi-step plans.
+   - Implication: harnesses must model per-workflow cost, alert on anomalous token usage, and support cost-aware planning (e.g., fallbacks to cheaper models for non-critical subroutines).
+
+5) Organizational and engineering readiness varies by company size
+   - Evidence: LangChain shows mid-sized companies lead production deployment (≈63% for 100–2000 employees) and enterprises adopt stricter guardrails.
+   - Implication: platform and central engineering teams should provide reusable harness components (observability, permissioning, evaluation pipelines) to accelerate smaller product teams and reduce duplicated effort in larger organizations.
+
+Short roadmap (prioritized next steps)
+- 0–3 months (stabilize): Add tracing for all agent inputs, decisions, and tool calls; define 3–5 success metrics for each agent use case; implement basic read-only permissions for external tools.
+- 3–9 months (harden): Build offline regression/evaluation pipelines; add canary rollout patterns with human approval gates; instrument cost telemetry and alerting for token spikes.
+- 9+ months (scale): Develop shared harness libraries, enforce CI checks for agent changes (evaluation gates), and invest in model- and tool-agnostic abstractions (contracts for tool calls and memory management).
+
+Risks and limitations of the evidence
+- Single-survey bias: LangChain’s survey (60% of respondents from tech, 51% from companies with <100 employees) is a valuable market signal but likely skews toward early adopters and framework users. Triangulation with independent analyst reports is recommended before making large strategic bets.
+- Fast-moving market: agent frameworks, model capabilities, and observability tooling are evolving rapidly; some recommendations should be revisited quarterly.
+
+Intended audience
+Engineering leads, platform and infrastructure teams, product managers, and technical decision-makers planning or operating LLM-agent deployments.
+
+Bottom line
+Agent engineering is already a distinct, high-priority discipline: organizations should immediately invest in observability, offline evaluation, permissioning, and cost telemetry. These foundational harness capabilities address the leading barrier (production quality) and unlock safer, more scalable agent adoption.
 
 Market Signals and Key Statistics
 
-Overview
-- Survey-driven interest: industry reports (e.g., LangChain State of AI Agents 2024) and vendor briefings show high developer interest and accelerating experimentation with agents.
-- Production footprints: multiple sources indicate a meaningful minority of teams have moved agents into production, particularly for niche automation and internal developer tools.
+This section summarizes the most actionable market signals and quantitative evidence about adoption, production deployment, use-case prevalence, and control practices for LLM agents. Primary anchor: LangChain's "State of AI Agents" survey (n > 1,300). Where noted, additional corroborating coverage is referenced.
 
-Key indicators
-- Adoption rate proxies: public surveys suggest that a majority of organizations are prototyping or planning agent initiatives; estimates vary by source but commonly cite figures between 50-80% for active exploration or development.
-- Investment and vendor activity: increased funding into agent-focused startups and rapid feature expansions from infrastructure providers (e.g., LLM frameworks adding agent orchestration features).
-- Community and open-source momentum: frameworks like LangChain, AutoGen, and various agent templates show fast growth in stars, downloads, and community contributions.
+Key statistics (LangChain survey)
+- Sample: LangChain surveyed over 1,300 professionals across roles (engineers, product managers, business leaders). Company-size and industry mix: Technology (60% of respondents); company sizes skewed to smaller orgs (<100 employees = 51%).
+- Production adoption: ~51% of respondents report having agents in production today.
+- Near-term plans: 78% of respondents have active plans to implement agents into production soon.
+- Top use cases (percent of respondents selecting): research & summarization (~58%); personal productivity/assistant workflows (~53.5%); customer service automation (~45.8%).
+- Controls & evaluation: tracing/observability and offline evaluation are widely used. Offline evaluation cited by 39.8% of respondents; online evaluation by 32.5%.
+- Barrier ranking: Performance/quality of outputs is the top barrier to production (reported as the primary concern, often >2x frequency of cost or safety concerns in some cohorts).
+
+Interpretation and caveats
+- Representativeness: The LangChain sample skews toward technology companies (60%) and smaller organizations (<100 employees = 51%), which likely biases observed adoption and tooling preferences toward early adopters and developer-facing frameworks. Treat the percentages as a strong signal of developer sentiment rather than a precise, population-representative market share estimate.
+- Vendor influence: LangChain is a major agent framework and observability tooling vendor; its respondent pool and framing may influence emphasis on observability, evaluation, and certain frameworks. Corroborate with independent analyst or vendor-agnostic surveys when making strategic investments.
+- Temporal volatility: The agent ecosystem and model capabilities change rapidly. Adoption rates and tooling maturity trends should be re-evaluated quarterly.
+
+Supporting corroboration
+- InfoQ and industry press coverage summarize and corroborate LangChain's findings (growth in agent frameworks, rising production experiments). These sources provide independent confirmation of a growing market conversation but typically re-report vendor numbers rather than providing independent raw-data surveys.
 
 Implications for harness engineering
-- Growing demand for production-grade harness features: observability, testing frameworks, memory/versioning, and tool integrations.
-- Opportunity for platforms and middleware vendors to standardize harness components and provide compliant guardrails across enterprises.
+- High near-term intent (78%) + non-trivial production share (51%) implies immediate demand for reusable harness components: tracing/observability, permissioning layers, offline evaluation pipelines, and cost telemetry.
+- The dominance of research/summarization and productivity use cases indicates harnesses must prioritize retrieval grounding, citation/attribution tracking, and summarization evaluation metrics in addition to action/permission control features.
+
+Data and methods note
+- Primary data source: LangChain "State of AI Agents" (survey n > 1,300). Methodology and respondent breakdown are reported on the LangChain page; see Research Notes for extracted quotes and confidence annotations.
+
+Sources / notes
+- LangChain — State of AI Agents (survey): https://www.langchain.com/stateofaiagents (primary anchor for the section)
+- InfoQ coverage: https://www.infoq.com/news/2024/12/ai-agents-langchain/ (press corroboration)
+
+
+Next steps
+- Triangulate the production-adoption and intent figures with at least one vendor-agnostic industry survey or analyst report (Gartner, Forrester, McKinsey, Menlo Ventures/Others) to estimate enterprise representation and validate the 51%/78% signals.
+- Collect vendor activity metrics (GitHub stars, npm/pypi downloads, LangChain and competitor deployment announcements) to supplement self-reported survey data with behavioral adoption signals.
 
 Leading Use Cases for LLM Agents
 
