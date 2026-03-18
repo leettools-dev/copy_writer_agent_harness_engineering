@@ -48,8 +48,8 @@
       "section_id": "06-vendor-landscape",
       "title": "Vendor and Tooling Landscape",
       "file": "document/sections/06-vendor-landscape.md",
-      "status": "draft",
-      "summary": "Key frameworks, cloud providers, and observability tooling relevant to harness engineering."
+      "status": "done",
+      "summary": "Catalog of frameworks, observability/eval vendors, cloud and niche tooling for harness engineering, with evidence-backed tradeoffs and procurement guidance."
     },
     {
       "section_id": "07-recommendations",
