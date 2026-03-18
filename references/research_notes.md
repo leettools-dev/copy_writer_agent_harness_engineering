@@ -165,6 +165,71 @@
 - Proxy-based observability can be an effective low-effort way to obtain cost and token-level dashboards without deep SDK integration, but it introduces an operational choke point and data-flow consideration (routing traffic through proxy).
 
 
+## Source: Anthropic - "Demystifying evals for AI agents"
+- URL: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+- Why this source matters: Detailed engineering guidance on designing, running, and maintaining evaluations for agents; includes definitions (eval harness, transcript, graders), practical grader taxonomy, pass@k/pass^k metrics, and a step-by-step roadmap from zero to a robust eval practice.
+- Reliability tier: strong-secondary (primary engineering guidance from a major model/provider; authoritative about best practices and internal learnings but reflective of Anthropic's practices)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: Definitions and taxonomy (task, trial, grader types, transcript, harness)
+  - Support: Article defines evaluation components and ties them to practical implementation choices
+  - Intended section(s): Production Challenges and Guardrails; Future Outlook (evaluation maturity)
+  - Confidence: high
+
+- Claim or data point: Grader taxonomy and recommended use (code-based, model-based, human)
+  - Support: Article provides tables and examples of grader strengths/weaknesses and recommends hybrid approaches
+  - Intended section(s): Production Challenges; Recommendations; Future Outlook
+  - Confidence: high
+
+- Claim or data point: pass@k and pass^k distinctions for non-deterministic agents
+  - Support: Article explains metrics and their product implications (consistency vs. any-success)
+  - Intended section(s): Production Challenges; Future Outlook and Research Directions
+  - Confidence: high
+
+- Claim or data point: Roadmap to adopt evals (collect tasks, write unambiguous tasks, build harness, graders, maintain over time)
+  - Support: Stepwise guidance and examples from Anthropic internal practice
+  - Intended section(s): Recommendations; Future Outlook
+  - Confidence: high
+
+### Open questions
+- How easily can smaller teams adopt Anthropic's entire eval roadmap? Which parts give most leverage early?
+- Cost of running large eval suites frequently for high-throughput agent workloads.
+
+### Draft implications
+- Anthropic's guidance makes clear that mature harness engineering will center on eval-harnesses, transcript capture, grader calibration, and continuous monitoring. Teams should prioritize small, high-impact eval suites early, then scale.
+
+
+## Source: Google Developers Blog - "Announcing the Agent2Agent Protocol (A2A)"
+- URL: https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/
+- Why this source matters: Public announcement and technical draft for an open Agent-to-Agent protocol (A2A) designed to enable capability discovery, task management, secure messaging, long-running tasks, and modality-agnostic artifacts across diverse agent implementations. Signals industry movement toward standardized agent interoperability with major partners backing the initiative.
+- Reliability tier: strong-secondary (official Google announcement with broad partner list; authoritative for protocol design and partner commitments)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: A2A provides capability discovery (Agent Card), task lifecycle management, artifact exchange, and user-experience negotiation
+  - Support: Blog post and linked draft specification (GitHub) describe Agent Card, task objects, parts/content types, and lifecycle semantics
+  - Intended section(s): Future Outlook (standards & composability), Architectures and Integration Patterns
+  - Confidence: high
+
+- Claim or data point: Broad partner support (Atlassian, Box, LangChain, MongoDB, PayPal, Salesforce, Weights & Biases, and many systems integrators)
+  - Support: Partners listed in blog post; implies enterprise interest in interoperable agent ecosystems
+  - Intended section(s): Vendor Landscape; Future Outlook
+  - Confidence: high
+
+- Claim or data point: Design principles emphasize security-by-default, building on HTTP/JSON-RPC/SSE, support for long-running tasks, and modality-agnostic parts
+  - Support: Protocol design principles in the announcement
+  - Intended section(s): Architectures and Integration Patterns; Future Outlook
+  - Confidence: high
+
+### Open questions
+- How quickly will A2A be adopted in production across vendor ecosystems, and what compatibility layers will teams need for legacy stacks?
+- How will governance, enterprise access control, and auditability be standardized across A2A implementations?
+
+### Draft implications
+- A2A (and related efforts like MCP) create a near-term engineering requirement: harnesses must prepare for protocol adapters, standardized trace formats, and capability negotiation interfaces. Early adopters who implement A2A-compatible adapters may gain integration advantages in multi-agent workflows.
+
+
 ## Notes: additional sources to fetch
 - Independent analyst surveys (Gartner, Forrester, McKinsey) to triangulate adoption statistics.
 - Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry for LLMs, Helicone, Langfuse).
