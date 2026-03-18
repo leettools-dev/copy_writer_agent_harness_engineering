@@ -110,30 +110,82 @@ Leading Use Cases for LLM Agents
 
 High-value domains where harness engineering is critical
 
-1. Data analysis and BI agents
-- Use case: natural-language data exploration, automated report generation, and ad-hoc analysis via tool-assisted access to databases and visualization libraries.
-- Harness needs: secure data connectors, query shaping, result caching, and provenance tracking.
+Overview
+- Evidence base: LangChain "State of AI Agents" survey (n≈1,300) reports that research/summarization (≈58%), personal productivity/assistants (≈53.5%), and customer service (≈45.8%) are among the top named use cases. The same report finds ~51% of respondents are already running agents in production and ~78% have active plans to implement agents. (LangChain survey findings summarized in Research Notes.)
+- What this means: demand is concentrated in applications that mix retrieval/grounding with action (tool calls, API integration, automation). Harness engineering therefore shifts from model-only concerns to reliable, auditable orchestration, grounding, and permissioned action execution.
 
-2. Software engineering and code agents
-- Use case: code generation, automated code review, testing, and incident triage.
-- Harness needs: sandboxed execution environments, source control integration, reproducible prompts, and safety checks to prevent destructive actions.
+1) Data analysis & BI agents
+- Common real-world examples: natural-language exploration over databases, automated report generation, and interactive dashboards where an agent issues structured queries, calls analytics libraries, and synthesizes results for non-technical users.
+  - Evidence/example: Microsoft Copilot Studio customer stories emphasize finance reconciliation, IT support, and analytics agents (Est e9e Lauder, Dow, Amgen) that connect to business data and deliver measurable ROI. LangChain survey also ranks research/summarization and productivity use cases highly.
+- Harness needs and engineering implications:
+  - Secure data connectors and fine-grained access control (least-privilege credentials, query-level RBAC).
+  - Query shaping and result validation layers to avoid unsafe SQL/ETL operations; use typed intermediates and query whitelists.
+  - Provenance and lineage capture: store the agent prompts, retrieved evidence documents, DB queries, and final synthesized outputs for audit and debugging.
+  - Cost & latency management: cache repeated queries, batch retrievals, and use hybrid retrieval (embedding store + vector index + metadata filters).
+- Metrics and failure modes:
+  - Key metrics: answer precision/grounding rate, proportion of answers requiring human review, query failure rate, end-to-end latency, cost per session.
+  - Failure modes: hallucinated facts from unsupported retrievals, over-indexing of private data, accidental exposure via API calls.
+- Recommended guardrails:
+  - Read-only defaults for data connectors; explicit human approval for write operations.
+  - Automated tests: unit tests for query templates, regression tests comparing synthesized results to baseline metrics.
 
-3. Workflow automation and RPA augmentation
-- Use case: orchestrating multi-step business processes, interacting with APIs and enterprise systems.
-- Harness needs: robust retry/compensation logic, transactionality controls, human-in-the-loop integration, and compliance auditing.
+2) Software engineering & code agents
+- Common real-world examples: code generation, automated code review, CI triage, test generation, incident response assistants that can run searches, summarize logs, or propose fix candidates.
+  - Evidence/example: GitHub/Microsoft product lines and industry adoption of code assistants demonstrate demand for developer-facing agents; Copilot Studio and vendor blogs describe coding and automation agents as priority workloads.
+- Harness needs and engineering implications:
+  - Sandboxed execution environments for any code the agent runs (container-based sandboxes, ephemeral VMs) and strong resource limits.
+  - Source-control integration and reproducible prompt-to-patch lineage (linking prompts, suggested diffs, and resulting commits).
+  - Safety checks for destructive actions (automated gate checks, pre-commit human approvals, simulated dry-run testing).
+  - Regression testing and canary deployments for agent-suggested changes.
+- Metrics and failure modes:
+  - Key metrics: suggestion acceptance rate, patch quality (static analysis score), build/test flakiness introduced, mean time to rollback.
+  - Failure modes: insecure code suggestions, leaking secrets in code snippets, CI instability caused by low-quality patches.
 
-4. Customer support and knowledge assistants
-- Use case: automated responses, ticket summarization, and agent escalation to humans.
-- Harness needs: context management, confidence scoring, fallback routing, and monitoring of quality and latency.
+3) Workflow automation & RPA augmentation
+- Common real-world examples: orchestrating multi-step business processes that interact with CRM/ERP systems, performing order updates, or coordinating complex ticket-handling flows where the agent calls multiple internal APIs.
+  - Evidence/example: Microsoft positions agents as automation-first (Agent 365 / Copilot Studio) and highlights multi-agent orchestration and publish-to-app workflows.
+- Harness needs and engineering implications:
+  - Transactionality controls and compensating actions for partially completed workflows (idempotency, sagas, retries with exponential backoff).
+  - Durable state management (workflows persisted across restarts) and clear escalation policies (human-in-the-loop for uncertain decisions).
+  - Auditable action logs and rollback capabilities for financial or compliance-bound operations.
+- Metrics and failure modes:
+  - Key metrics: workflow completion rate, average steps to resolution, human escalation frequency, cost per automated workflow.
+  - Failure modes: cascade failures when downstream APIs behave unexpectedly, inconsistent state across services.
 
-5. Research and insight assistants
-- Use case: literature surveys, hypothesis exploration, and experimental planning.
-- Harness needs: reproducible sessions, citation tracking, and integration with external tools for data collection.
+4) Customer support & knowledge assistants
+- Common real-world examples: automated ticket triage & summarization, personalized responses with escalation to humans when confidence is low, and in-product help agents.
+  - Evidence/example: LangChain survey and Microsoft customer stories cite customer service as a top use case; vendors and enterprises report high ROI from reduced handle times and improved journey completion rates.
+- Harness needs and engineering implications:
+  - Context management across sessions (short-term and user history), user privacy controls, and confidence scoring tied to fallback/ escalation thresholds.
+  - Hybrid response architectures: retrieval-augmented generation (RAG) with citation links and deterministic templates for sensitive responses.
+  - Monitoring for degradation in NPS/CSAT and automatic rollbacks to human-only flows on signal thresholds.
+- Metrics and failure modes:
+  - Key metrics: answer accuracy, escalation rate, time-to-first-response, customer satisfaction (CSAT/NPS), hallucination incidents.
+  - Failure modes: incorrect or harmful advice, policy violations, privacy breaches.
 
-Cross-cutting harness requirements
-- Tool invocation patterns: safe, auditable calls to external APIs and internal services.
-- Memory and context management: long-term and short-term memory stores with retention and privacy controls.
-- Observability: traceability of decisions, latency/cost metrics, and user-interaction analytics.
+5) Research & insight assistants
+- Common real-world examples: literature surveys, exploratory data analysis, reproducible experiment notebooks, and multi-step hypothesis testing where agents fetch sources, synthesize evidence, and propose next steps.
+  - Evidence/example: tools like Perplexity Deep Research and Elicit target research workflows; LangChain shows research/summarization as a leading use case.
+- Harness needs and engineering implications:
+  - Citation and source-tracking baked into outputs (linkable evidence and versioned snapshots of retrieved sources).
+  - Reproducible session recording: save chains of prompts, retrieval results, and intermediate reasoning to support audit and replication.
+  - Interfaces for human-in-the-loop verification and for exporting structured artifacts (bibtex, CSV, notebooks).
+- Metrics and failure modes:
+  - Key metrics: source precision, reproducibility score (can a reviewer reach same claims from stored artifacts), researcher time saved.
+  - Failure modes: stale or unverified sources causing invalid conclusions, misattribution of ideas.
+
+Cross-cutting takeaways and implications for harness engineering
+- Observability and traceability are non-negotiable. LangChain survey respondents rank tracing/observability among must-have controls; for use cases that combine retrieval + action, capturing the full trace (inputs, retrieved evidence, tool calls, decisions) is essential for debugging, compliance, and evaluation.
+- Permissioned tool invocation by default. Across data, code, and workflow use cases the safest posture is read-only connectors and explicit approvals for write/delete actions.
+- Prioritize offline evaluation and regression testing. Since "performance quality" is the top barrier cited in surveys, teams should invest in offline evaluation pipelines, synthetic test suites, and A/B canaries before broad rollout.
+- Design for gradual autonomy. Start with assisted workflows (explainable suggestions, human approvals) and progressively increase autonomy as confidence metrics (accuracy, grounding, low human escalations) stabilize.
+
+Sources and notes
+- LangChain, "State of AI Agents" (survey findings summarized in Research Notes). 2024-2025 survey data used as primary market-statistics anchor.
+- Microsoft Copilot Studio product pages & customer stories (features: agent templates, multi-agent orchestration, analytics & governance). Accessed and summarized for concrete enterprise examples.
+- Perplexity Deep Research / Elicit (representative research-assistant products) — product features referenced for citation and research workflows.
+
+Implication (so what): for teams prioritizing early impact, start harness work on data/BI agents and customer-support agents (highest immediate ROI and lower-risk action surfaces), then expand to code and automation agents with stronger sandboxes and composable rollback semantics. Investing upfront in observability, provenance, and offline evaluation delivers outsized reductions in time-to-production and operational incidents.
 
 Architectures and Integration Patterns
 

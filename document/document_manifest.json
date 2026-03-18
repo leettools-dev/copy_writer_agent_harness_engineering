@@ -6,7 +6,7 @@
     "source": "internet",
     "source_url": "https://www.langchain.com/stateofaiagents",
     "path": "references/selected_example.md",
-    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes."
+    "notes": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes. Section 03 updated to draft->done after adding evidence and implications."
   },
   "sections": [
     {
@@ -27,7 +27,7 @@
       "section_id": "03-use-cases",
       "title": "Leading Use Cases for LLM Agents",
       "file": "document/sections/03-use-cases.md",
-      "status": "draft",
+      "status": "done",
       "summary": "Primary application areas where harnesses are most needed (e.g., data agents, code agents, automation)."
     },
     {

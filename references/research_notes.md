@@ -48,51 +48,28 @@
 - Given performance/quality is the top barrier, investment in systematic offline evaluation, regression testing, and human-in-the-loop approval paths should be prioritized by engineering teams.
 
 
-## Source: InfoQ coverage of LangChain report
-- URL: https://www.infoq.com/news/2024/12/ai-agents-langchain/
-- Why this source matters: Independent tech press coverage that corroborates key findings and provides additional industry reaction.
-- Reliability tier: weak-secondary (press coverage summarizing vendor report)
+## Source: Microsoft Copilot Studio product page
+- URL: https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio
+- Why this source matters: Vendor product page showing concrete enterprise features (agent templates, multi-agent orchestration, analytics & governance) and customer stories that map to high-value use cases.
+- Reliability tier: strong-secondary (major cloud vendor product documentation and customer case studies)
 - Date accessed: 2026-03-18
 
 ### Evidence extracted
-- Claim or data point: Industry reaction and corroboration of adoption trends
-  - Support: Article summarizes LangChain findings and highlights growing adoption of agent frameworks across industries.
-  - Intended section(s): Market Signals and Key Statistics; Vendor Landscape
-  - Confidence: medium
+- Claim or data point: Copilot Studio enables building, customizing, and publishing agents across Microsoft 365 apps and external channels
+  - Support: Product landing page copy and features list (agent templates, multi-agent orchestration, publishing channels)
+  - Intended section(s): Leading Use Cases; Vendor Landscape
+  - Confidence: high
 
-### Open questions
-- Need to cross-check with vendor-agnostic surveys (e.g., enterprise AI adoption reports from analyst firms) for triangulation.
-
-### Draft implications
-- Press corroboration strengthens confidence that the LangChain survey reflects a visible market conversation, but independent sources should be added for stronger claims.
-
-
-## Source: Menlo Ventures - "2024: The State of Generative AI in the Enterprise"
-- URL: https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/
-- Why this source matters: Vendor-neutral investor research focusing on enterprise adoption and investment patterns for generative AI in 2024; useful for triangulating enterprise-level demand signals (spend, pilot-to-production ratios) even if not agent-specific.
-- Reliability tier: strong-secondary (investor survey of IT decision-makers; sample biased toward enterprise purchasers but less vendor-specific than framework providers)
-- Date accessed: 2026-03-18
-
-### Evidence extracted
-- Claim or data point: Survey sample and focus
-  - Support: Menlo surveyed ~600 U.S. enterprise IT decision-makers (headline and methodology summary on the report page).
-  - Intended section(s): Market Signals and Key Statistics
-  - Confidence: medium
-
-- Claim or data point: Growing enterprise investment and rapid increase in spend on generative AI (report-level headline)
-  - Support: Report emphasizes rising spend and enterprise projects moving beyond experimentation in late 2024.
-  - Intended section(s): Market Signals and Key Statistics; Future Outlook
-  - Confidence: medium
-
-### Open questions
-- Menlo's survey is enterprise-facing and U.S.-centric; how closely does its definition of "AI" align with the LangChain definition of "agent" (autonomy and tool use)?
+- Claim or data point: Enterprise governance features (Purview integration, admin controls, analytics)
+  - Support: Documentation and admin center references on product page
+  - Intended section(s): Production Challenges and Guardrails; Recommendations
+  - Confidence: high
 
 ### Draft implications
-- Menlo's enterprise-focused signals indicate that even if LangChain's sample skews toward developer-first orgs, broader enterprise spending and piloting of generative AI projects support the inference that agent-like workflows are entering procurement and platform planning conversations.
+- Large vendors are packaging harness capabilities as integrated enterprise offerings (connectors, governance, analytics), lowering entry-barriers for organizations already in those ecosystems.
 
 
-## Notes on additional sources to fetch (next iteration)
-- Independent industry surveys and analyst reports (Gartner, Forrester, McKinsey, O'Reilly) covering generative AI/agents adoption to triangulate adoption and production rates.
-- Vendor landscape snapshots from cloud providers (AWS, Google, Azure) and agent framework activity (LangChain, LlamaIndex, Microsoft Copilot X, Replit, Perplexity, Cursor).
-- Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry-like tracing for LLMs).
-- Behavioral adoption metrics to collect: GitHub stars, npm/pypi download trends, job postings mentioning "agents" or "LangChain", and LangChain/LangSmith usage telemetry where available.
+## Notes: additional sources to fetch
+- Independent analyst surveys (Gartner, Forrester, McKinsey) to triangulate adoption statistics.
+- Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry for LLMs).
+- Public case studies that quantify ROI (reduced handle time, cost savings from automation) for customer support & finance agents.
