@@ -69,6 +69,31 @@
 - Large vendors are packaging harness capabilities as integrated enterprise offerings (connectors, governance, analytics), lowering entry-barriers for organizations already in those ecosystems.
 
 
+## Source: AIMultiple - LLM Observability Tools
+- URL: https://aimultiple.com/llm-observability
+- Why this source matters: Independent comparison that synthesizes vendor strengths and trade-offs across observability, evaluation, and cost-tracking tools; useful for triangulating vendor capabilities and expected trade-offs for engineering teams.
+- Reliability tier: medium-secondary (analyst/aggregator content with vendor-reported features; useful for feature comparison but requires cross-checking primary docs for critical claims)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: Tool positioning by strength
+  - Support: AIMultiple organizes vendors by "best for" categories: W&B Weave for experiments/versioning, LangSmith for agent-level traces and evaluation, Helicone for proxy-based cost tracking and caching, Langfuse for open-source/self-hosted tracing.
+  - Intended section(s): Vendor and Tooling Landscape; Production Challenges and Guardrails
+  - Confidence: high
+
+- Claim or data point: Observability categories and metrics
+  - Support: AIMultiple details core metric categories (latency, throughput, token usage, correctness/factuality) and recommends mapping these to experiment and production dashboards.
+  - Intended section(s): Production Challenges and Guardrails; Vendor Landscape
+  - Confidence: high
+
+### Open questions
+- Pricing and enterprise feature parity: AIMultiple summarizes features but not enterprise SLAs or detailed pricing; need vendor docs for procurement decisions.
+- Integration friction: how easily do observability tools integrate with non-LangChain stacks (self-built agent harnesses) at scale?
+
+### Draft implications
+- Observability tooling landscape is meaningfully segmented: teams should pick tools based on primary needs (tracing vs. experiment/versioning vs. cost proxies) and plan for integration/plumbing work if their stack diverges from a vendor's native ecosystem.
+
+
 ## Notes: additional sources to fetch
 - Independent analyst surveys (Gartner, Forrester, McKinsey) to triangulate adoption statistics.
 - Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry for LLMs).
