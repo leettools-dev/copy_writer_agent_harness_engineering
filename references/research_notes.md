@@ -130,6 +130,41 @@
 - Large vendors are packaging harness capabilities as integrated enterprise offerings (connectors, governance, analytics), lowering entry-barriers for organizations already in those ecosystems.
 
 
+## Source: Langfuse (open-source tracing & observability)
+- URL: https://www.langfuse.io/
+- Why this source matters: Representative open-source alternative for tracing and agent observability; provides a self-hosted path and shows feature parity tradeoffs versus managed vendors.
+- Reliability tier: medium-secondary (project documentation and community resources; accurate for product claims but requires evaluation for SLA and scale characteristics)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: Langfuse provides tracing, evaluation, and debug tooling for LLM applications with a focus on self-hosting and data control
+  - Support: Project docs and feature lists
+  - Intended section(s): Vendor and Tooling Landscape; Recommendations
+  - Confidence: medium
+
+### Open questions
+- Operational overhead at scale: resource needs, maintenance effort, and how it compares to managed alternatives.
+
+### Draft implications
+- Langfuse is a strong candidate for teams with strict data residency or cost constraints who can tolerate some operational overhead; procurement should include an internal TCO exercise.
+
+
+## Source: Helicone (proxy-based observability, cost tracking)
+- URL: https://www.helicone.ai/
+- Why this source matters: Helicone operates as a proxy to capture telemetry and provide cost-tracking and caching for LLM usage; useful when teams need low-friction cost visibility and request caching.
+- Reliability tier: medium-secondary (vendor docs; useful for feature claims)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: Helicone provides request-level telemetry, token-cost attribution, and caching to reduce repeated token spend
+  - Support: Product documentation and blogs
+  - Intended section(s): Vendor and Tooling Landscape; Recommendations
+  - Confidence: medium
+
+### Draft implications
+- Proxy-based observability can be an effective low-effort way to obtain cost and token-level dashboards without deep SDK integration, but it introduces an operational choke point and data-flow consideration (routing traffic through proxy).
+
+
 ## Notes: additional sources to fetch
 - Independent analyst surveys (Gartner, Forrester, McKinsey) to triangulate adoption statistics.
 - Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry for LLMs, Helicone, Langfuse).
