@@ -8,7 +8,7 @@
 
 ### Evidence extracted
 - Claim or data point: Survey sample size and respondent composition
-  - Support: "We surveyed over 1,300 professionals  from engineers and product managers to business leaders and executives"
+  - Support: "We surveyed over 1,300 professionals — from engineers and product managers to business leaders and executives"
   - Intended section(s): Market Signals and Key Statistics; Methods note in Executive Summary
   - Confidence: high
 
@@ -33,12 +33,12 @@
   - Confidence: high
 
 - Claim or data point: Biggest barrier to production is performance quality
-  - Support: "Performance quality stands out as the top concern more than twice as significant as other factors like cost and safety."
+  - Support: "Performance quality stands out as the top concern — more than twice as significant as other factors like cost and safety."
   - Intended section(s): Production Challenges and Guardrails; Executive Summary
   - Confidence: high
 
 ### Open questions
-- Representativeness: LangChain's respondent pool is 60% from technology industry and skewed to smaller companies (<100 employees = 51%). How does this affect generalizability to large enterprises?
+- Representativeness: LangChain's respondent pool is 60% from technology industry and skewed to smaller organizations (<100 employees = 51%). How does this affect generalizability to large enterprises?
 - Temporal stability: Are these adoption rates consistent across other independent surveys (vendor-agnostic sources) conducted in late 2024 / 2025?
 - Vendor influence: Because LangChain publishes agent frameworks and observability/validation products (LangSmith), to what extent do product mentions and tooling priorities reflect vendor positioning vs. broad market needs?
 
@@ -56,7 +56,7 @@
 
 ### Evidence extracted
 - Claim or data point: Industry reaction and corroboration of adoption trends
-  - Support: Article summarises LangChain findings and highlights growing adoption of agent frameworks across industries.
+  - Support: Article summarizes LangChain findings and highlights growing adoption of agent frameworks across industries.
   - Intended section(s): Market Signals and Key Statistics; Vendor Landscape
   - Confidence: medium
 
@@ -67,8 +67,32 @@
 - Press corroboration strengthens confidence that the LangChain survey reflects a visible market conversation, but independent sources should be added for stronger claims.
 
 
+## Source: Menlo Ventures - "2024: The State of Generative AI in the Enterprise"
+- URL: https://menlovc.com/2024-the-state-of-generative-ai-in-the-enterprise/
+- Why this source matters: Vendor-neutral investor research focusing on enterprise adoption and investment patterns for generative AI in 2024; useful for triangulating enterprise-level demand signals (spend, pilot-to-production ratios) even if not agent-specific.
+- Reliability tier: strong-secondary (investor survey of IT decision-makers; sample biased toward enterprise purchasers but less vendor-specific than framework providers)
+- Date accessed: 2026-03-18
+
+### Evidence extracted
+- Claim or data point: Survey sample and focus
+  - Support: Menlo surveyed ~600 U.S. enterprise IT decision-makers (headline and methodology summary on the report page).
+  - Intended section(s): Market Signals and Key Statistics
+  - Confidence: medium
+
+- Claim or data point: Growing enterprise investment and rapid increase in spend on generative AI (report-level headline)
+  - Support: Report emphasizes rising spend and enterprise projects moving beyond experimentation in late 2024.
+  - Intended section(s): Market Signals and Key Statistics; Future Outlook
+  - Confidence: medium
+
+### Open questions
+- Menlo's survey is enterprise-facing and U.S.-centric; how closely does its definition of "AI" align with the LangChain definition of "agent" (autonomy and tool use)?
+
+### Draft implications
+- Menlo's enterprise-focused signals indicate that even if LangChain's sample skews toward developer-first orgs, broader enterprise spending and piloting of generative AI projects support the inference that agent-like workflows are entering procurement and platform planning conversations.
+
+
 ## Notes on additional sources to fetch (next iteration)
-- Independent industry surveys (McKinsey, BCG, Gartner, O'Reilly reports) covering generative AI/agents adoption to triangulate adoption and production rates.
+- Independent industry surveys and analyst reports (Gartner, Forrester, McKinsey, O'Reilly) covering generative AI/agents adoption to triangulate adoption and production rates.
 - Vendor landscape snapshots from cloud providers (AWS, Google, Azure) and agent framework activity (LangChain, LlamaIndex, Microsoft Copilot X, Replit, Perplexity, Cursor).
 - Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry-like tracing for LLMs).
-
+- Behavioral adoption metrics to collect: GitHub stars, npm/pypi download trends, job postings mentioning "agents" or "LangChain", and LangChain/LangSmith usage telemetry where available.
