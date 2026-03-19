@@ -1,0 +1,299 @@
+{
+  "generated_by": "copy_writer_agent.runtime_sync",
+  "updated_at": "2026-03-19T16:53:06.090784+00:00",
+  "sources": [
+    {
+      "source_id": "selected-example",
+      "title": "Selected Example",
+      "url": "https://www.langchain.com/stateofaiagents",
+      "source_role": "selected_example",
+      "capture_path": "references/selected_example.md",
+      "linked_sections": [
+        "Executive Summary",
+        "Market Signals and Key Statistics",
+        "Leading Use Cases for LLM Agents",
+        "Architectures and Integration Patterns",
+        "Production Challenges and Guardrails",
+        "Vendor and Tooling Landscape",
+        "Recommendations for Engineering Teams",
+        "Future Outlook and Research Directions"
+      ],
+      "why_it_matters": "Selected LangChain State of AI Agents Report (2024) as exemplar. Programmatic fetch succeeded and key statistics were extracted for Research Notes. Section 03 updated to done after adding evidence and implications. Section 04 updated to done after authoring a concrete architecture section with examples and implementation checklist. Section 05 updated to done after adding concrete mitigations, metrics, and tool mappings. Section 07 updated to done after authoring prioritized recommendations with tactical rollout and procurement guidance.",
+      "evidence": [],
+      "open_questions": [],
+      "draft_implications": []
+    },
+    {
+      "source_id": "langchain-state-of-ai-agents-report-2024-trends",
+      "title": "LangChain - State of AI Agents Report: 2024 Trends",
+      "url": "https://www.langchain.com/stateofaiagents",
+      "source_role": "example_candidate",
+      "capture_path": null,
+      "linked_sections": [],
+      "why_it_matters": "Survey-driven industry report focused on agent adoption, use cases, guardrails, and production challenges. Strong match for tone and structure for market analysis.",
+      "score": 0.95,
+      "evidence": [],
+      "open_questions": [],
+      "draft_implications": []
+    },
+    {
+      "source_id": "ai-agents-are-disrupting-automation-current-approaches-market",
+      "title": "AI Agents are disrupting automation: Current approaches, market ...",
+      "url": "https://www.insightpartners.com/ideas/ai-agents-disrupting-automation/",
+      "source_role": "example_candidate",
+      "capture_path": null,
+      "linked_sections": [],
+      "why_it_matters": "Investor-oriented market writeup discussing commercialization and vendor landscape.",
+      "score": 0.8,
+      "evidence": [],
+      "open_questions": [],
+      "draft_implications": []
+    },
+    {
+      "source_id": "build-an-llm-powered-data-agent-for-data-analysis-nvidia-developer",
+      "title": "Build an LLM-Powered Data Agent for Data Analysis - NVIDIA Developer",
+      "url": "https://developer.nvidia.com/blog/build-an-llm-powered-data-agent-for-data-analysis/",
+      "source_role": "example_candidate",
+      "capture_path": null,
+      "linked_sections": [],
+      "why_it_matters": "Technical and hands-on; useful for technical landscape and engineering considerations.",
+      "score": 0.7,
+      "evidence": [],
+      "open_questions": [],
+      "draft_implications": []
+    },
+    {
+      "source_id": "langchain-state-of-ai-agents",
+      "title": "LangChain - State of AI Agents",
+      "url": "https://www.langchain.com/stateofaiagents",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/langchain-state-of-ai-agents.md",
+      "linked_sections": [
+        "Market Signals",
+        "Key Statistics",
+        "Methods note in Executive Summary",
+        "Executive Summary",
+        "Leading Use Cases for LLM Agents",
+        "Production Challenges",
+        "Guardrails",
+        "Recommendations"
+      ],
+      "why_it_matters": "Large, industry-facing survey (LangChain) that directly addresses adoption, use cases, controls, and production barriers for AI agents. Serves as a timely empirical anchor for market signals and engineering priorities.",
+      "reliability_tier": "strong-secondary (survey published by a major vendor; primary for vendor-led industry insight but may have sampling biases toward tech-oriented respondents)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Survey sample size and respondent composition (Support: \"We surveyed over 1,300 professionals — from engineers and product managers to business leaders and executives\")",
+        "Production adoption rate (Support: \"About **51% of respondents** are using agents in production today.\" (LangChain))",
+        "Near-term plans to implement agents (Support: \"**78% have active plans** to implement agents into production soon.\")",
+        "Top use cases (percentages) (Support: \"Top use cases for agents include **performing research and summarization (58%)**, followed by **personal productivity or assistance (53.5%)**, and **customer service (45.8%)\".)",
+        "Controls and evaluation practices (Support: \"Tracing and observability tools top the list of must-have controls\"; offline evaluation (39.8%) cited more than online evaluation (32.5%); many teams require read-only tool permissions or human approval for write/delete actions.)",
+        "Biggest barrier to production is performance quality (Support: \"Performance quality stands out as the top concern — more than twice as significant as other factors like cost and safety.\")"
+      ],
+      "open_questions": [
+        "Representativeness: LangChain's respondent pool is 60% from technology industry and skewed to smaller organizations (<100 employees = 51%). How does this affect generalizability to large enterprises?",
+        "Temporal stability: Are these adoption rates consistent across other independent surveys (vendor-agnostic sources) conducted in late 2024 / 2025?",
+        "Vendor influence: Because LangChain publishes agent frameworks and observability/validation products (LangSmith), to what extent do product mentions and tooling priorities reflect vendor positioning vs. broad market needs?"
+      ],
+      "draft_implications": [
+        "Observed high interest and non-trivial production presence imply immediate demand for harness capabilities: observability/tracing, permissioned tool execution, offline evaluation pipelines, and incident response workflows.",
+        "The prominence of research/summarization and productivity use cases suggests harnesses must prioritize retrieval, grounding, and summarization evaluation metrics alongside action/permission controls.",
+        "Given performance/quality is the top barrier, investment in systematic offline evaluation, regression testing, and human-in-the-loop approval paths should be prioritized by engineering teams."
+      ]
+    },
+    {
+      "source_id": "langsmith-langchain-product-page",
+      "title": "LangSmith (LangChain product page)",
+      "url": "https://www.langchain.com/langsmith/observability",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/langsmith-langchain-product-page.md",
+      "linked_sections": [
+        "Vendor",
+        "Tooling Landscape",
+        "Production Challenges",
+        "Guardrails",
+        "Recommendations",
+        "Recommendations for Engineering Teams"
+      ],
+      "why_it_matters": "Primary product documentation showing how a leading vendor positions observability, tracing, evaluation, and deployment features for agents. Useful for concrete claims about SDK support, tracing semantics, and deployment options.",
+      "reliability_tier": "strong-secondary (vendor primary docs; authoritative about the product but may emphasize strengths over limitations)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "LangSmith provides tracing and observability for agents and LLMs (Support: Product page: \"LangSmith Observability gives you complete visibility into agent behavior... Trace your preferred framework or integrate LangSmith with any agent stack using our Python, Typescript, Go, or Java SDKs.\")",
+        "Monitoring and evaluation features (Support: LangSmith monitoring includes cost tracking, online evals (LLM-as-judge), tool/agent trajectory monitoring, webhooks/PagerDuty alerts, and dashboards for token usage, latency (P50, P99), error rates, and feedback scores.)",
+        "Integration and deployment modes (Support: Docs and FAQ indicate SDKs, OpenTelemetry support, managed cloud/BYOC/self-hosted deployment options, and assurances about data residency and not training on customer data.)",
+        "Pricing and tiers (Support: LangSmith provides a free tier for development and scales with trace volume; enterprise pricing available via sales (product page / pricing link).)"
+      ],
+      "open_questions": [
+        "Latency and overhead in high-throughput agent loops beyond SDK assurances: how trace payloads affect cost and operational plumbing at scale?",
+        "Enterprise SLA specifics and comparative pricing vs. open-source/self-hosted alternatives."
+      ],
+      "draft_implications": [
+        "Vendor platforms like LangSmith reduce integration friction by offering SDKs and OTel bridges, but teams should validate latency and cost at expected trace volumes before committing to managed plans.",
+        "Self-hosted/BYOC options are important for compliance-heavy teams; procurement should collect SLA and data-residency terms early."
+      ]
+    },
+    {
+      "source_id": "aimultiple-llm-observability-tools",
+      "title": "AIMultiple - LLM Observability Tools",
+      "url": "https://aimultiple.com/llm-observability",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/aimultiple-llm-observability-tools.md",
+      "linked_sections": [
+        "Vendor",
+        "Tooling Landscape",
+        "Production Challenges",
+        "Guardrails",
+        "Vendor Landscape"
+      ],
+      "why_it_matters": "Independent comparison that synthesizes vendor strengths and trade-offs across observability, evaluation, and cost-tracking tools; useful for triangulating vendor capabilities and expected trade-offs for engineering teams.",
+      "reliability_tier": "medium-secondary (analyst/aggregator content with vendor-reported features; useful for feature comparison but requires cross-checking primary docs for critical claims)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Tool positioning by strength (Support: AIMultiple organizes vendors by \"best for\" categories: W&B for experiments/versioning, LangSmith for agent-level traces and evaluation, Helicone for proxy-based cost tracking and caching, Langfuse for open-source/self-hosted tracing.)",
+        "Observability categories and metrics (Support: AIMultiple details core metric categories (latency, throughput, token usage, correctness/factuality) and recommends mapping these to experiment and production dashboards.)"
+      ],
+      "open_questions": [
+        "Pricing and enterprise feature parity: AIMultiple summarizes features but not enterprise SLAs or detailed pricing; need vendor docs for procurement decisions.",
+        "Integration friction: how easily do observability tools integrate with non-LangChain stacks (self-built agent harnesses) at scale?"
+      ],
+      "draft_implications": [
+        "Observability tooling landscape is meaningfully segmented: teams should pick tools based on primary needs (tracing vs. experiment/versioning vs. cost proxies) and plan for integration/plumbing work if their stack diverges from a vendor's native ecosystem."
+      ]
+    },
+    {
+      "source_id": "microsoft-copilot-studio-product-page",
+      "title": "Microsoft Copilot Studio product page",
+      "url": "https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/microsoft-copilot-studio-product-page.md",
+      "linked_sections": [
+        "Leading Use Cases",
+        "Vendor Landscape",
+        "Production Challenges",
+        "Guardrails",
+        "Recommendations"
+      ],
+      "why_it_matters": "Vendor product page showing concrete enterprise features (agent templates, multi-agent orchestration, analytics & governance) and customer stories that map to high-value use cases.",
+      "reliability_tier": "strong-secondary (major cloud vendor product documentation and customer case studies)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Copilot Studio enables building, customizing, and publishing agents across Microsoft 365 apps and external channels (Support: Product landing page copy and features list (agent templates, multi-agent orchestration, publishing channels))",
+        "Enterprise governance features (Purview integration, admin controls, analytics) (Support: Documentation and admin center references on product page)"
+      ],
+      "open_questions": [],
+      "draft_implications": [
+        "Large vendors are packaging harness capabilities as integrated enterprise offerings (connectors, governance, analytics), lowering entry-barriers for organizations already in those ecosystems."
+      ]
+    },
+    {
+      "source_id": "langfuse-open-source-tracing-observability",
+      "title": "Langfuse (open-source tracing & observability)",
+      "url": "https://www.langfuse.io/",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/langfuse-open-source-tracing-observability.md",
+      "linked_sections": [
+        "Vendor",
+        "Tooling Landscape",
+        "Recommendations"
+      ],
+      "why_it_matters": "Representative open-source alternative for tracing and agent observability; provides a self-hosted path and shows feature parity tradeoffs versus managed vendors.",
+      "reliability_tier": "medium-secondary (project documentation and community resources; accurate for product claims but requires evaluation for SLA and scale characteristics)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Langfuse provides tracing, evaluation, and debug tooling for LLM applications with a focus on self-hosting and data control (Support: Project docs and feature lists)"
+      ],
+      "open_questions": [
+        "Operational overhead at scale: resource needs, maintenance effort, and how it compares to managed alternatives."
+      ],
+      "draft_implications": [
+        "Langfuse is a strong candidate for teams with strict data residency or cost constraints who can tolerate some operational overhead; procurement should include an internal TCO exercise."
+      ]
+    },
+    {
+      "source_id": "helicone-proxy-based-observability-cost-tracking",
+      "title": "Helicone (proxy-based observability, cost tracking)",
+      "url": "https://www.helicone.ai/",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/helicone-proxy-based-observability-cost-tracking.md",
+      "linked_sections": [
+        "Vendor",
+        "Tooling Landscape",
+        "Recommendations"
+      ],
+      "why_it_matters": "Helicone operates as a proxy to capture telemetry and provide cost-tracking and caching for LLM usage; useful when teams need low-friction cost visibility and request caching.",
+      "reliability_tier": "medium-secondary (vendor docs; useful for feature claims)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Helicone provides request-level telemetry, token-cost attribution, and caching to reduce repeated token spend (Support: Product documentation and blogs)"
+      ],
+      "open_questions": [],
+      "draft_implications": [
+        "Proxy-based observability can be an effective low-effort way to obtain cost and token-level dashboards without deep SDK integration, but it introduces an operational choke point and data-flow consideration (routing traffic through proxy)."
+      ]
+    },
+    {
+      "source_id": "anthropic-demystifying-evals-for-ai-agents",
+      "title": "Anthropic - \"Demystifying evals for AI agents\"",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/anthropic-demystifying-evals-for-ai-agents.md",
+      "linked_sections": [
+        "Production Challenges",
+        "Guardrails",
+        "Future Outlook (evaluation maturity)",
+        "Recommendations",
+        "Future Outlook",
+        "Research Directions"
+      ],
+      "why_it_matters": "Detailed engineering guidance on designing, running, and maintaining evaluations for agents; includes definitions (eval harness, transcript, graders), practical grader taxonomy, pass@k/pass^k metrics, and a step-by-step roadmap from zero to a robust eval practice.",
+      "reliability_tier": "strong-secondary (primary engineering guidance from a major model/provider; authoritative about best practices and internal learnings but reflective of Anthropic's practices)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "Definitions and taxonomy (task, trial, grader types, transcript, harness) (Support: Article defines evaluation components and ties them to practical implementation choices)",
+        "Grader taxonomy and recommended use (code-based, model-based, human) (Support: Article provides tables and examples of grader strengths/weaknesses and recommends hybrid approaches)",
+        "pass@k and pass^k distinctions for non-deterministic agents (Support: Article explains metrics and their product implications (consistency vs. any-success))",
+        "Roadmap to adopt evals (collect tasks, write unambiguous tasks, build harness, graders, maintain over time) (Support: Stepwise guidance and examples from Anthropic internal practice)"
+      ],
+      "open_questions": [
+        "How easily can smaller teams adopt Anthropic's entire eval roadmap? Which parts give most leverage early?",
+        "Cost of running large eval suites frequently for high-throughput agent workloads."
+      ],
+      "draft_implications": [
+        "Anthropic's guidance makes clear that mature harness engineering will center on eval-harnesses, transcript capture, grader calibration, and continuous monitoring. Teams should prioritize small, high-impact eval suites early, then scale."
+      ]
+    },
+    {
+      "source_id": "google-developers-blog-announcing-the-agent2agent-protocol-a2a",
+      "title": "Google Developers Blog - \"Announcing the Agent2Agent Protocol (A2A)\"",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "source_role": "supporting_source",
+      "capture_path": "references/source_captures/google-developers-blog-announcing-the-agent2agent-protocol-a2a.md",
+      "linked_sections": [
+        "Future Outlook (standards & composability)",
+        "Architectures",
+        "Integration Patterns",
+        "Vendor Landscape",
+        "Future Outlook"
+      ],
+      "why_it_matters": "Public announcement and technical draft for an open Agent-to-Agent protocol (A2A) designed to enable capability discovery, task management, secure messaging, long-running tasks, and modality-agnostic artifacts across diverse agent implementations. Signals industry movement toward standardized agent interoperability with major partners backing the initiative.",
+      "reliability_tier": "strong-secondary (official Google announcement with broad partner list; authoritative for protocol design and partner commitments)",
+      "date_accessed": "2026-03-18",
+      "evidence": [
+        "A2A provides capability discovery (Agent Card), task lifecycle management, artifact exchange, and user-experience negotiation (Support: Blog post and linked draft specification (GitHub) describe Agent Card, task objects, parts/content types, and lifecycle semantics)",
+        "Broad partner support (Atlassian, Box, LangChain, MongoDB, PayPal, Salesforce, Weights & Biases, and many systems integrators) (Support: Partners listed in blog post; implies enterprise interest in interoperable agent ecosystems)",
+        "Design principles emphasize security-by-default, building on HTTP/JSON-RPC/SSE, support for long-running tasks, and modality-agnostic parts (Support: Protocol design principles in the announcement)"
+      ],
+      "open_questions": [
+        "How quickly will A2A be adopted in production across vendor ecosystems, and what compatibility layers will teams need for legacy stacks?",
+        "How will governance, enterprise access control, and auditability be standardized across A2A implementations?"
+      ],
+      "draft_implications": [
+        "A2A (and related efforts like MCP) create a near-term engineering requirement: harnesses must prepare for protocol adapters, standardized trace formats, and capability negotiation interfaces. Early adopters who implement A2A-compatible adapters may gain integration advantages in multi-agent workflows.",
+        "## Notes: additional sources to fetch",
+        "Independent analyst surveys (Gartner, Forrester, McKinsey) to triangulate adoption statistics.",
+        "Observability and evaluation tooling comparisons (LangSmith, Weights & Biases, Sentry for LLMs, Helicone, Langfuse).",
+        "Public case studies that quantify ROI (reduced handle time, cost savings from automation) for customer support & finance agents."
+      ]
+    }
+  ]
+}
